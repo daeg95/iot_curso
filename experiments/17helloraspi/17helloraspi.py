@@ -2,9 +2,11 @@ import RPi.GPIO as gpio
 import time
 
 gpio.setmode(gpio.BOARD) # Iniciar la board
+
+gpio.setup(23, gpio.IN, pull_up_down = gpio.PUD_UP)
 gpio.setup(24, gpio.OUT) # Asignacion del pin
 
-gpio.setup(23, gpio.IN)
+
 
 # gpio.output(12, True) # encender 
 # time.sleep(12)
@@ -20,4 +22,5 @@ while True:
     else:
         gpio.output(24, False)
 
-
+gpio.cleanup(23)
+gpio.cleanup(24)
